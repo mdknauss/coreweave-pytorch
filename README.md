@@ -1,42 +1,52 @@
 # CoreWeave PyTorch + Weights & Biases Demo
 
-Clean, modular PyTorch training example built as preparation for the **AI Solutions Engineer (Post-Sales - W&B)** role at CoreWeave.
+**Portfolio Project** — Built as preparation for the **AI Solutions Engineer (Post-Sales - W&B)** role at CoreWeave.
 
-## Features
-- Modular code structure (`src/` package)
-- Full experiment tracking with Weights & Biases
-- GPU memory & utilization logging
-- Model checkpointing + W&B Artifacts
-- Docker + NVIDIA container ready
-- VS Code Remote Container support
+This project demonstrates a clean, production-ready workflow for training PyTorch models on GPU infrastructure using Docker, modular code structure, and full experiment tracking with Weights & Biases.
 
-## Quick Start
+### Key Features
+
+- **Modular architecture** (`src/` package) – easy to maintain and extend
+- Full **Weights & Biases** integration (live metrics, artifacts, GPU monitoring)
+- Containerized environment using NVIDIA PyTorch Docker image
+- GPU-accelerated training with proper memory management
+- Model checkpointing and artifact logging to W&B
+- Ready for scaling to multi-GPU / distributed training on CoreWeave
+
+### Tech Stack
+
+- **PyTorch** + CUDA
+- **Weights & Biases** (experiment tracking & model artifacts)
+- **Docker** + NVIDIA Container Toolkit
+- **VS Code** Remote Containers
+- Python 3.10+
+
+### Project Structure
 
 ```bash
-# 1. Inside the container
+coreweave-pytorch/
+├── src/
+│   ├── model.py          # SimpleCNN model definition
+│   ├── train.py          # Training loop with W&B logging
+│   └── utils.py          # GPU logging utilities
+├── inference.py
+├── config.yaml
+├── requirements.txt
+├── docker-compose.yml
+├── README.md
+└── .gitignore
+
+Quick Start:
+
+# 1. Start the environment
+docker compose up -d
+
+# 2. Enter the container
+docker compose exec pytorch bash
+
+# 3. Install dependencies and login to W&B
 pip install -r requirements.txt
 wandb login
 
-# 2. Train the model
+# 4. Train the model
 python src/train.py
-
-coreweave-pytorch-demo/
-├── src/
-│   ├── model.py
-│   ├── train.py
-│   └── utils.py
-├── inference.py
-├── README.md
-├── requirements.txt
-├── config.yaml
-├── .gitignore
-└── best_model.pth
-
-Tech Stack
-
-PyTorch + CUDA (RTX 2080 SUPER)
-Weights & Biases for experiment tracking
-Docker + NVIDIA PyTorch container
-VS Code Remote - Containers
-
-This project demonstrates the type of reproducible, containerized workflows I help customers implement on CoreWeave's GPU cloud.
