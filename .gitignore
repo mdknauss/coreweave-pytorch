@@ -5,6 +5,10 @@ __pycache__/
 .Python
 env/
 venv/
+*.env
 data/
 *.pth
 wandb/
+runs/
+*.log
+.DS_Store
