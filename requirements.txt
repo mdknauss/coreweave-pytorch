@@ -1,0 +1,7 @@
+torch
+torchvision
+torchaudio
+wandb
+matplotlib
+pandas
+pyyaml
