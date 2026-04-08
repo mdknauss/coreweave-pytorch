@@ -1,4 +1,8 @@
 batch_size: 128
 learning_rate: 0.001
-epochs: 60
+epochs: 80
 optimizer: Adam
+
+# Optional settings we can extend later
+weight_decay: 0.0001
+momentum: 0.9                 # Only used if we switch to SGD
